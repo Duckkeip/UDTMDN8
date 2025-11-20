@@ -182,7 +182,7 @@ const addToCart = async (product) => {
             })
           }
         >
-          🔄 Xóa bộ lọc
+           Xóa bộ lọc
         </button>
       </aside>
 
