@@ -63,7 +63,35 @@ function Products() {
       rating: prev.rating === 5 ? 0 : 5
     }));
   };
+  // 🛒 Hàm thêm vào giỏ hàng
+const addToCart = async (product) => {
+  const item = {
+    product_id: product._id,
+    name: product.name,
+    price: product.price,
+    image: product.image,
+    quantity: 1
+  };
 
+  try {
+    const res = await fetch("http://localhost:5000/api/products/cart/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user_id: userId, product: item }),
+    });
+
+    const data = await res.json();
+
+    if (data.message) {
+      alert(data.message);
+    } else {
+      alert("Đã thêm vào giỏ hàng!");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("💥 Lỗi khi thêm vào giỏ hàng");
+  }
+};
   // Lọc sản phẩm dựa trên filters
   const filteredProducts = products.filter((p) => {
     const matchType = !filters.types || p.type === filters.types;
@@ -165,12 +193,12 @@ function Products() {
               <img src={p.image || "/no-image.png"} alt={p.name} />
               <div className="p-product-name">{p.name}</div>
               <div className="p-product-info">{p.brand}</div>
-              <div className="p-product-info text-warning">⭐ {p.rating || 0}</div>
+              <div className="p-product-info te xt-warning">⭐ {p.rating || 0}</div>
               <div className="p-product-info text-success">
                 {p.price.toLocaleString("vi-VN")} ₫
               </div>
-              <button className="btn-cart">
-                <i className="bi bi-cart"></i> Add to cart
+              <button className="btn-cart" onClick={() => addToCart(p)}>
+                <i className="bi bi-cart"></i> Thêm vào giỏ 
               </button>
               <Link
                 to={`/detail/${p._id}`}

@@ -1,5 +1,4 @@
 /* Products.css */
-
 /* Container chính */
 .p-product-container {
   display: flex;
@@ -153,10 +152,12 @@
 }
 
 /* Buttons sản phẩm */
-.btn-cart,
+
 .btn-detail {
-  width: calc(100% - 24px);
+  width:90%;
+
   margin: 5px 12px 12px;
+  background-color: #758da7;
   padding: 8px;
   border: none;
   border-radius: 8px;
@@ -164,14 +165,27 @@
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   align-items: center;
   justify-content: center;
   gap: 5px;
 }
 
-.btn-cart {
-  background-color: #007bff;
-  color: #fff;
+.btn-cart{
+  width:90%;
+  margin: 5px 12px 12px;
+  background-color: #758da7;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .btn-cart:hover {

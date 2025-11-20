@@ -6,7 +6,7 @@
     width: 90%;
     max-width: 1000px;
     margin: 40px auto;
-    background: #fff;
+    background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     padding: 30px;
@@ -17,7 +17,7 @@
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 25px;
-    color: #333;
+    color: #ffffff;
   }
   
   /* Table */
@@ -25,6 +25,7 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    
   }
   
   .cart-table th, 
@@ -32,12 +33,13 @@
     padding: 12px 15px;
     text-align: center;
     border-bottom: 1px solid #ddd;
+    font-size: 1rem;  
   }
   
   .cart-table th {
     background: #f7f7f7;
     font-weight: 600;
-    color: #555;
+    color: #ffffff;
   }
   
   .cart-table tr:hover {

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import "./Products.css";
+import "./Cart.css";
 
 function Cart() {
   const location = useLocation();
@@ -78,7 +78,7 @@ function Cart() {
                 <th>Giá</th>
                 <th>Số lượng</th>
                 <th>Tổng</th>
-                <th>Hành động</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
