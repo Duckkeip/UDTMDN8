@@ -113,45 +113,7 @@ router.get("/:user_id", async (req, res) => {
       res.status(500).json({ success: false, message: "Server error" });
     }
   });
-  
-  // POST thêm sản phẩm vào giỏ
-  router.post("/add", async (req, res) => {
-    try {
-      const database = await db();
-      const { user, productId, quantity, name, price, image } = req.body;
-  
-      if (!user || !productId || !quantity || !name || !price)
-        return res.status(400).json({ success: false, message: "Thiếu dữ liệu" });
-  
-      let cart = await database.collection("giohang").findOne({ user });
-  
-      const newItem = { productId, name, price, image, quantity, createdAt: new Date() };
-  
-      if (!cart) {
-        // tạo giỏ hàng mới
-        cart = { user, chitietgiohang: [newItem] };
-        await database.collection("giohang").insertOne(cart);
-      } else {
-        // check nếu sản phẩm đã tồn tại → cộng quantity
-        const index = cart.chitietgiohang.findIndex((item) => item.productId === productId);
-        if (index >= 0) {
-          cart.chitietgiohang[index].quantity += quantity;
-        } else {
-          cart.chitietgiohang.push(newItem);
-        }
-        await database.collection("giohang").updateOne(
-          { user },
-          { $set: { chitietgiohang: cart.chitietgiohang } }
-        );
-      }
-  
-      res.json({ success: true, cart });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ success: false, message: "Server error" });
-    }
-  });
-  
+
   // PUT cập nhật số lượng sản phẩm
   router.put("/update", async (req, res) => {
     try {
