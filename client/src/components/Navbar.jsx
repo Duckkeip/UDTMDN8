@@ -10,10 +10,22 @@ function Navbar() {
   const user = JSON.parse(localStorage.getItem("user") || "null");
   const userId = user ? user.id : "guest";
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    navigate("/login");
-  };
+  const handleLogout = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    try {
+      await fetch(`http://localhost:5000/api/cart/${user.id}/clear`, {
+        method: "DELETE",
+      });
+    } catch (err) {
+      console.error("💥 Lỗi xoá giỏ hàng:", err);
+    }
+  }
+  localStorage.removeItem("user");
+  navigate("/login");
+  
+};
+   
 
   return (
     <>

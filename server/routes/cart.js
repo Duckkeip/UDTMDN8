@@ -206,5 +206,20 @@ router.get("/:user_id", async (req, res) => {
       res.status(500).json({ success: false, message: "Server error" });
     }
   });
+
+  router.delete("/:userId/clear", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const database = await db();
+    
+    // Xoá tất cả sản phẩm trong giỏ của user
+    await database.collection("giohang").deleteMany({ user: userId });
+    
+    res.json({ success: true, message: "Đã xoá toàn bộ giỏ hàng!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Lỗi server" });
+  }
+});
   
   module.exports = router;

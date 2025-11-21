@@ -9,7 +9,7 @@ import Navbar from './components/Navbar.jsx'
 import Register from './pages/Register.jsx'
 import Login from './pages/Login.jsx'
 import DetailF from './components/products/detail/detail.jsx'
-
+import VnpayReturn from './components/vnpay/vnpayReturn'
 function App() {
 
   return (
@@ -19,15 +19,19 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home/:id" element={<Home />} />
 
-        {/* Danh mục */}
+        {/* Sản phẩm */}
         <Route path="/products" element={<Products />} />
 
         {/* ✅ Route Detail xem chi tiết */}
         <Route path="/detail/:pid" element={<DetailF />} />
         
-
-        {/* Khác */}
+        {/* Giỏ hàng */}
         <Route path="/cart/:id" element={<Cart />} />
+        
+        {/* VNPAY RETURN */}
+        <Route path="/vnpay_return" element={<VnpayReturn />} /> 
+
+        {/* LOGIN/OUT */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
