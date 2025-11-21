@@ -79,7 +79,7 @@ class Detail extends React.Component {
   loadCartCount = async () => {
     const { user_id } = this.props;
     try {
-      const res = await fetch(`http://localhost:5000/api/products/cart/${user_id}`);
+      const res = await fetch(`http://localhost:5000/api/cart/${user_id}`);
       const data = await res.json();
       if (data.cart) {
         const total = data.cart.items.reduce((sum, item) => sum + item.quantity, 0);
@@ -102,7 +102,7 @@ class Detail extends React.Component {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/products/cart/add", {
+      const res = await fetch("http://localhost:5000/api/cart/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id, product }),

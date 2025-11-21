@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const productRoutes = require("./routes/products");
 const authRoutes = require("./routes/auth");
-const cartRoutes = require("./routes/products"); // 🔹 Thêm route giỏ hàng
+const cartRoutes = require("./routes/cart");
 const db = require("./config/db");
 require("dotenv").config();
 
