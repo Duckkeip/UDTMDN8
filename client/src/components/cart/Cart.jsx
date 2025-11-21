@@ -257,6 +257,7 @@ const handlePlaceOrder = async () => {
                   try {
                     const orderData = { 
                       amount: orderStatus.tongtien, 
+                      order_id: orderStatus._id,
                       bankCode: '', 
                       language: 'vn', 
                       user_id: user_id
